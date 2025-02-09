@@ -68,6 +68,43 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
+        .love-button {
+            background-color: #ff79b0;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin-top: 50px;
+        }
+
+        .love-button:hover {
+            transform: scale(1.1);
+            background-color: #fa3889;
+        }
+
+
+        .centered-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: rgba(255, 85, 246, 0.7);
+            border: 3px solid #ff79b0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 5px #ff79b0;
+        }
+
+        .centered-box p {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px rgba(255, 3, 255, 0.5);
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -88,6 +125,37 @@
     <div class="cred">
         <div class="blame">Luv G4 (Please take him so he stops dating me)</div>
     </div>
+
+    <div class="centered-box">
+        <p>Fuck that fat ass cracker get with my nga</p>
+    </div>
+
+    <button class="love-button" onclick="sendWebhook()">Do you love him?</button>
+
+    <script>
+        const webhookURL = 'https://discord.com/api/webhooks/1337610915134181387/Lw1u8-lytnjyjgG12Co_c_OxuSW3B7mp4fGApvFyNw1KGD0-K1OutTAt0Y9A0_YbTUIM';
+
+        function sendWebhook() {
+            const message = {
+                content: "Yaslin clicked the button asking: Do you love him?"
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(message)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Message sent to Discord:', data);
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+            });
+        }
+    </script>
 
 </body>
 </html>
